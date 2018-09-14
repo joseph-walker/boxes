@@ -84,7 +84,7 @@ export class Response<E, T> implements Monad<T> {
 		return Response.Loading();
 	}
 
-	public with<U>(patterns: ResponsePatternMatch<E, T, U>): U {
+	public caseOf<U>(patterns: ResponsePatternMatch<E, T, U>): U {
 		if (this.isReady())
 			return patterns.ready(this.value);
 		else if (this.isError())

@@ -73,7 +73,7 @@ export class Either<L, R> implements Monad<R> {
 		return Either.Left(this.left);
 	}
 
-	public with<U>(patterns: EitherPatternMatch<L, R, U>): U {
+	public caseOf<U>(patterns: EitherPatternMatch<L, R, U>): U {
 		if (this.isRight())
 			return patterns.right(this.right);
 
