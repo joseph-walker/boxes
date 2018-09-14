@@ -1,6 +1,6 @@
-# Algebra
+![Boxes JS](./boxesLogo.png)
 
-A medley of monads and an assortment of applicatives.
+# Put Your Data in a Box
 
 Maybe
 - [Overview](./docs/maybe.md)
