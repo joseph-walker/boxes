@@ -1,6 +1,6 @@
 # Maybe
 
-A maybe represents a value that can be nullable. It can either be `Just` or `Nothing` -- where `Just <any>` represents a value that exists,
+A Maybe Box represents a value that can be nullable. It can either be `Just` or `Nothing` -- where `Just <any>` represents a value that exists,
 and `Nothing` represents one that does not.
 
 ## Creating a Maybe
@@ -31,7 +31,7 @@ const maybeUndefined = Maybe.fromUndefined(someValue);
 const maybeTruthy = Maybe.fromTruthy(someValue);
 ```
 
-_From Other Monads_
+_From Other Boxes_
 
 ```js
 // From an Either (Left becomes Nothing)
@@ -43,7 +43,7 @@ const maybeSomething = Maybe.fromResponse(someResponse);
 
 ## Turning a Maybe into something else
 
-Sometimes you'll have a Maybe, but what you'll really want is something with more control
+Sometimes you'll have a Maybe, but that may not be the Box you actually want
 
 ```js
 // To an Either
