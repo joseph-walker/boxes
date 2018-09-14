@@ -29,6 +29,37 @@ export default myComponent extends React.Component<OwnProps> {
 }
 ```
 
+## How to get your async data into a Response Box (using Redux for this example)
+
+Boxes are side-effect free, but when you're dealing with something like an API call and a Response box that begs the question of how
+to actually get your data into the darn Box to begin with!
+
+Here's one way you might do it using Redux and Redux-Thunk:
+
+```js
+// A normal Thunk action creator
+function actionCreator(arg) {
+    return function(dispatch) {
+        dispatch({ type: 'ACTION_INIT' }); // Send an action that says we've started the API call
+
+        doApiCall()
+            // Conclue the API call with a success...
+            .then(data => dispatch({ type: 'ACTION_SUCCESS', res }))
+            // ...or a failure
+            .catch(err => dispatch({ type: 'ACTION_FAILURE', err }));
+    }
+}
+
+// Then create your Boxes in your reducer
+function reducer(state, action) {
+    switch(action.type) {
+        case 'ACTION_INIT': return { apiData: Response.Loading() }
+        case 'ACTION_SUCCESS': return { apiData: Response.Ready(action.res) }
+        case 'ACTION_FAILURE': return { apiData: Response.Error(action.err) }
+    }
+}
+```
+
 ## Boxes work particularly well with pipelines
 
 ```js
