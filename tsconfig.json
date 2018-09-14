@@ -1,0 +1,18 @@
+{
+	"include": [
+		"./src",
+		"./tests"
+	],
+	"compilerOptions": {
+		"target": "es2016",
+		"moduleResolution": "node",
+		"noImplicitAny": true,
+		"sourceMap": true,
+		"outDir": "./dist",
+		"baseUrl": "src",
+		"paths": {
+            "guard/*": ["guard/*"],
+            "algebra/*": ["algebra/*"]
+		}
+	}
+}
