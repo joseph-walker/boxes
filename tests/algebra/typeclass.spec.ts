@@ -1,7 +1,8 @@
 import 'mocha';
 import { expect } from 'chai';
 
-import { Functor, Applicative, Monad } from 'algebra/typeclass';
+import { Functor, Applicative, Monad } from '../../src/algebra/typeclass';
+import { constant } from '../../src/lib/applicative';
 
 type NumberFn = (x: number) => number;
 type MonadTestFn = (x: number) => Monad<number>;
@@ -67,3 +68,9 @@ export function monadLaws(pure: (x: any) => Monad<any>, m: (x: any) => Monad<any
 		expect(m(42).chain(testFnF).chain(testFnG)).to.be.deep.equal(m(42).chain((x: number) => testFnF(x).chain(testFnG)));
 	});
 }
+
+describe('Constant Function', function() {
+	it('should behave like a const function should', function() {
+		expect(constant(1, 2)).to.be.equal(1);
+	});
+})

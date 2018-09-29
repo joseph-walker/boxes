@@ -1,6 +1,6 @@
 # Cookbook
 
-The following are some typical use cases for Boxes. The examples will use Maybe since it's the simplest, but
+The following are some typical use cases for Boxes. The examples will mostly use Maybe where possible since it's the simplest Box, but
 it's important to realize that every example could operate with Either or Response with no code changes required.
 
 ## Write your functions like you have all your data, even if you don't

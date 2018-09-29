@@ -1,10 +1,6 @@
 import { reduce, curryN, flip } from 'ramda';
 import { Applicative } from 'algebra/typeclass';
 
-function constant<T>(a: T, _: any): T {
-	return a;
-}
-
 export type PureConstructor<T> = (x: T) => Applicative<T>
 
 export function liftA2<T, U, V>(
@@ -47,7 +43,7 @@ export function liftA5<T, U, V, W, X, Y>(
 	fV: Applicative<V>,
 	fW: Applicative<W>,
 	fX: Applicative<X>
-): Applicative<X> {
+): Applicative<Y> {
 	return (fT.fmap(curryN(5, fn)) as Applicative<(y: U, z: V, a: W, b: X) => Y>)
 		.ap(fU)
 		.ap(fV)
@@ -88,12 +84,4 @@ export function traverse<T, U>(pure: PureConstructor<U[]>, fn: (x: T) => Applica
 
 export function sequenceA<T>(pure: PureConstructor<T[]>, xs: Applicative<T>[]): Applicative<T[]> {
 	return traverse(pure, (x: any) => x, xs);
-}
-
-export function takeLeft<T, U>(a: Applicative<T>, b: Applicative<U>): Applicative<T> {
-	return liftA2(constant, a, b) as Applicative<T>;
-}
-
-export function takeRight<T, U>(a: Applicative<T>, b: Applicative<U>): Applicative<U> {
-	return liftA2(flip(constant), a, b) as Applicative<U>;
 }

@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "mocha -r ts-node/register -r tsconfig-paths/register tests/**/*.spec.ts"
+        "test": "nyc mocha -r ts-node/register -r tsconfig-paths/register -r source-map-support/register tests/**/*.spec.ts"
     },
     "keywords": [],
     "author": "",
@@ -15,11 +15,26 @@
         "@types/ramda": "^0.25.37",
         "chai": "^4.1.2",
         "mocha": "^5.2.0",
+        "nyc": "^13.0.1",
+        "source-map-support": "^0.5.9",
         "ts-node": "^7.0.1",
         "tsconfig-paths": "^3.5.0",
         "typescript": "^3.0.3"
     },
     "dependencies": {
         "ramda": "^0.25.0"
+    },
+    "nyc": {
+        "extension": [
+            ".ts"
+        ],
+        "exclude": [
+            "**/*.d.ts",
+            "tests/**/*.ts"
+        ],
+        "reporter": [
+            "text"
+        ],
+        "all": false
     }
 }
