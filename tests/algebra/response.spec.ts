@@ -1,6 +1,6 @@
 import 'mocha';
 
-import { Response } from '../../src/algebra/Response';
+import { Response } from '../../src/algebra/response';
 import { functorLaws, applicativeLaws, monadLaws } from './typeclass.spec';
 
 describe('Response Monad', function() {
