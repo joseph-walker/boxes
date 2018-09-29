@@ -1,6 +1,6 @@
 import 'mocha';
 
-import { Either } from 'algebra/either';
+import { Either } from '../../src/algebra/either';
 import { functorLaws, applicativeLaws, monadLaws } from './typeclass.spec';
 
 describe('Either Monad', function() {
