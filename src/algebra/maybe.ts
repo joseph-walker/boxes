@@ -26,6 +26,13 @@ export class Maybe<T> implements Monad<T> {
 		//
 	}
 
+	public toString(): string {
+		if (this.isJust())
+			return `Just (${this.value.toString()})`;
+
+		return `Nothing`;
+	}
+
 	/**
 	 * Creates a new Just instance of the Maybe box
 	 * Just operates transparently, and will pass through the value held.

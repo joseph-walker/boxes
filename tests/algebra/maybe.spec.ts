@@ -40,7 +40,7 @@ describe('Maybe Monad', function() {
 			describe('lift2()', function() {
 				it('should lift an arity 2 function call', function() {
 					const arity2 = (a: number, b: number) => a - b;
-					const lifted = Maybe.liftA2(arity2);
+					const lifted = Maybe.lift2(arity2);
 
 					const just3 = Maybe.Just(3);
 					const just4 = Maybe.Just(4);
@@ -56,6 +56,14 @@ describe('Maybe Monad', function() {
 	});
 
 	describe('Maybe Instance Methods', function() {
+		describe('toString()', function() {
+			it('should return a friendly string instead of jank', function() {
+				const just = Maybe.Just(4);
+				const nothing = Maybe.Nothing();
 
+				expect(just.toString()).to.be.equal('Just (4)');
+				expect(nothing.toString()).to.be.equal('Nothing');
+			});
+		});
 	});
 });
