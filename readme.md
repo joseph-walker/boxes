@@ -32,7 +32,7 @@ yarn add boxes.js
 
 ## Quick Start
 
-__Zero to Sixty, let's go.__ 🔥
+__Zero to Sixty, let's go.__ 🏎️ 💨 🔥 🔥 🔥
 
 Import a Box. Let's use Maybe.
 ```js
