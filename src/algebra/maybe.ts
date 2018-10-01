@@ -305,7 +305,7 @@ export class Maybe<T> implements Monad<T> {
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 2 arguments.
 	 * @return {Maybe}
 	 */
-	public static liftA2<T, U, V>(
+	public static lift2<T, U, V>(
 		fn: (x: T, y: U) => V
 	): (
 		fT: Maybe<T>,
@@ -325,7 +325,7 @@ export class Maybe<T> implements Monad<T> {
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 3 arguments.
 	 * @return {Maybe}
 	 */
-	public static liftA3<T, U, V, W>(
+	public static lift3<T, U, V, W>(
 		fn: (x: T, y: U, z: V) => W
 	): (
 		fT: Maybe<T>,
@@ -346,7 +346,7 @@ export class Maybe<T> implements Monad<T> {
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 4 arguments.
 	 * @return {Maybe}
 	 */
-	public static liftA4<T, U, V, W, X>(
+	public static lift4<T, U, V, W, X>(
 		fn: (x: T, y: U, z: V, a: W) => X
 	): (
 		fT: Maybe<T>,
@@ -368,7 +368,7 @@ export class Maybe<T> implements Monad<T> {
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 5 arguments.
 	 * @return {Maybe}
 	 */
-	public static liftA5<T, U, V, W, X, Y>(
+	public static lift5<T, U, V, W, X, Y>(
 		fn: (x: T, y: U, z: V, a: W, b: X) => Y
 	): (
 		fT: Maybe<T>,
@@ -391,7 +391,7 @@ export class Maybe<T> implements Monad<T> {
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 6 arguments.
 	 * @return {Maybe}
 	 */
-	public static liftA6<T, U, V, W, X, Y, Z>(
+	public static lift6<T, U, V, W, X, Y, Z>(
 		fn: (x: T, y: U, z: V, a: W, b: X, c: Y) => Z
 	): (
 		fT: Maybe<T>,

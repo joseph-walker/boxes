@@ -12,19 +12,74 @@ If you're thinking to yourself right now "Hey, that sounds familiar," Boxes migh
 
 ### Table of Contents
 
-- Installing
-- Quick Start
-- The Boxes
-- [Cookbook](./docs/cookbook.md)
-- [FAQs](./docs/faqs.md)
+- [⬇️ Installing](#installing)
+- [🕑 Quick Start](#quick-start)
+- [📦 The Boxes](#the-boxes)
+- [📘 Cookbook](./docs/cookbook.md)
+- [🤔 FAQs](./docs/faqs.md)
 
 ## Installing
 
-TBD
+npm
+```
+npm install --save boxes.js
+```
 
-## Getting Started
+yarn
+```
+yarn add boxes.js
+```
 
-TBD
+## Quick Start
+
+__Zero to Sixty, let's go.__ 🔥
+
+Import a Box. Let's use Maybe.
+```js
+import { Maybe } from 'boxes.js';
+```
+
+Get you some data.
+```js
+const myData = 'Hello World';
+```
+
+Put it in a box.
+```js
+const myBox = Maybe.Just(myData);
+```
+
+Let's do stuff to it.
+```js
+const lowercase = myBox.fmap(s => s.toLowerCase());
+```
+
+What do we have?
+```js
+console.log(lowercase); // Just (hello world)
+```
+
+Let's make another box. An empty one this time.
+```js
+const myEmptyBox = Maybe.Nothing();
+```
+
+Let's do the same thing.
+```js
+const lowercaseAgain = myEmptyBox.fmap(s => s.toLowerCase());
+```
+
+But wait, there's no data. It's null! You can't call toLowerCase() on null!
+```js
+// But there's no error
+```
+
+Well then what do we have now?
+```js
+console.log(lowercaseAgain); // Nothing
+```
+
+What we started with -- nothing! Our function was never actually called.
 
 ## The Boxes
 
