@@ -32,11 +32,11 @@ Attempting to perform an operation on a Nothing will result in Nothing being ret
         * [.fromTruthy(value)](#Maybe.fromTruthy) ⇒ [<code>Maybe</code>](#Maybe)
         * [.fromEither(either)](#Maybe.fromEither) ⇒ [<code>Maybe</code>](#Maybe)
         * [.fromResponse(response)](#Maybe.fromResponse) ⇒ [<code>Maybe</code>](#Maybe)
-        * [.lift2(fn)](#Maybe.lift2) ⇒ [<code>Maybe</code>](#Maybe)
-        * [.lift3(fn)](#Maybe.lift3) ⇒ [<code>Maybe</code>](#Maybe)
-        * [.lift4(fn)](#Maybe.lift4) ⇒ [<code>Maybe</code>](#Maybe)
-        * [.lift5(fn)](#Maybe.lift5) ⇒ [<code>Maybe</code>](#Maybe)
-        * [.lift6(fn)](#Maybe.lift6) ⇒ [<code>Maybe</code>](#Maybe)
+        * [.lift2(fn)](#Maybe.lift2) ⇒ <code>function</code>
+        * [.lift3(fn)](#Maybe.lift3) ⇒ <code>function</code>
+        * [.lift4(fn)](#Maybe.lift4) ⇒ <code>function</code>
+        * [.lift5(fn)](#Maybe.lift5) ⇒ <code>function</code>
+        * [.lift6(fn)](#Maybe.lift6) ⇒ <code>function</code>
         * [.traverse(fn, xs)](#Maybe.traverse) ⇒ [<code>Maybe</code>](#Maybe)
         * [.sequence(xs)](#Maybe.sequence) ⇒ [<code>Maybe</code>](#Maybe)
 
@@ -266,7 +266,7 @@ By using this conversion, you lose information about the Error value of the Resp
 
 <a name="Maybe.lift2"></a>
 
-### Maybe.lift2(fn) ⇒ [<code>Maybe</code>](#Maybe)
+### Maybe.lift2(fn) ⇒ <code>function</code>
 Lift a function with Arity 2 into the Maybe box.
 This new function will accept 2 arguments that must be wrapped in Maybe, and will return
 a Maybe that is the result of unwrapping the arguments and executing the function.
@@ -280,7 +280,7 @@ Will return Nothing if either argument is Nothing.
 
 <a name="Maybe.lift3"></a>
 
-### Maybe.lift3(fn) ⇒ [<code>Maybe</code>](#Maybe)
+### Maybe.lift3(fn) ⇒ <code>function</code>
 Lift a function with Arity 3 into the Maybe box.
 This new function will accept 3 arguments that must be wrapped in Maybe, and will return
 a Maybe that is the result of unwrapping the arguments and executing the function.
@@ -294,7 +294,7 @@ Will return Nothing if any argument is Nothing.
 
 <a name="Maybe.lift4"></a>
 
-### Maybe.lift4(fn) ⇒ [<code>Maybe</code>](#Maybe)
+### Maybe.lift4(fn) ⇒ <code>function</code>
 Lift a function with Arity 4 into the Maybe box.
 This new function will accept 4 arguments that must be wrapped in Maybe, and will return
 a Maybe that is the result of unwrapping the arguments and executing the function.
@@ -308,7 +308,7 @@ Will return Nothing if any argument is Nothing.
 
 <a name="Maybe.lift5"></a>
 
-### Maybe.lift5(fn) ⇒ [<code>Maybe</code>](#Maybe)
+### Maybe.lift5(fn) ⇒ <code>function</code>
 Lift a function with Arity 5 into the Maybe box.
 This new function will accept 5 arguments that must be wrapped in Maybe, and will return
 a Maybe that is the result of unwrapping the arguments and executing the function.
@@ -322,7 +322,7 @@ Will return Nothing if any argument is Nothing.
 
 <a name="Maybe.lift6"></a>
 
-### Maybe.lift6(fn) ⇒ [<code>Maybe</code>](#Maybe)
+### Maybe.lift6(fn) ⇒ <code>function</code>
 Lift a function with Arity 6 into the Maybe box.
 This new function will accept 6 arguments that must be wrapped in Maybe, and will return
 a Maybe that is the result of unwrapping the arguments and executing the function.
