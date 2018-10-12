@@ -316,7 +316,7 @@ export class Maybe<T> implements Monad<T> {
 	 * Will return Nothing if either argument is Nothing.
 	 *
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 2 arguments.
-	 * @return {Maybe}
+	 * @return {function}
 	 */
 	public static lift2<T, U, V>(
 		fn: (x: T, y: U) => V
@@ -336,7 +336,7 @@ export class Maybe<T> implements Monad<T> {
 	 * Will return Nothing if any argument is Nothing.
 	 *
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 3 arguments.
-	 * @return {Maybe}
+	 * @return {function}
 	 */
 	public static lift3<T, U, V, W>(
 		fn: (x: T, y: U, z: V) => W
@@ -357,7 +357,7 @@ export class Maybe<T> implements Monad<T> {
 	 * Will return Nothing if any argument is Nothing.
 	 *
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 4 arguments.
-	 * @return {Maybe}
+	 * @return {function}
 	 */
 	public static lift4<T, U, V, W, X>(
 		fn: (x: T, y: U, z: V, a: W) => X
@@ -379,7 +379,7 @@ export class Maybe<T> implements Monad<T> {
 	 * Will return Nothing if any argument is Nothing.
 	 *
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 5 arguments.
-	 * @return {Maybe}
+	 * @return {function}
 	 */
 	public static lift5<T, U, V, W, X, Y>(
 		fn: (x: T, y: U, z: V, a: W, b: X) => Y
@@ -402,7 +402,7 @@ export class Maybe<T> implements Monad<T> {
 	 * Will return Nothing if any argument is Nothing.
 	 *
 	 * @param {function} fn - The function to lift into the Maybe box. Must have 6 arguments.
-	 * @return {Maybe}
+	 * @return {function}
 	 */
 	public static lift6<T, U, V, W, X, Y, Z>(
 		fn: (x: T, y: U, z: V, a: W, b: X, c: Y) => Z
