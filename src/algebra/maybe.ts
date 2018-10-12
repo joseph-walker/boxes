@@ -26,6 +26,12 @@ export class Maybe<T> implements Monad<T> {
 		//
 	}
 
+	/**
+	 * Overrides the toString() of the prototype to make logging of Maybe boxes
+	 * more user friendly
+	 *
+	 * @return {string}
+	 */
 	public toString(): string {
 		if (this.isJust())
 			return `Just (${this.value.toString()})`;

@@ -13,9 +13,32 @@ export interface ResponsePatternMatch<E, T, U> {
 	error: (e: E) => U
 }
 
+/**
+ * @class Response
+ *
+ * A Response box encapsulates data that is potentially asynchronous. It has three instances: Ready, Loading, and Error.
+ * If the Response is Ready <value>, it can be operated on normally. Both of the other instances are passed over, the only difference
+ * between the two that the Error instance can contain data. Attempting to perform any operation on either of these non-Ready instances
+ * results in the original value being returned.
+ */
 export class Response<E, T> implements Monad<T> {
 	constructor(readonly type: ResponseType, readonly value: T, readonly err: E) {
 		//
+	}
+
+	/**
+	 * Overrides the toString() of the prototype to make logging of Response boxes
+	 * more user friendly
+	 *
+	 * @return {string}
+	 */
+	public toString(): string {
+		if (this.isReady())
+			return `Ready (${this.value.toString()})`;
+		else if (this.isError())
+			return `Error (${this.err.toString()})`;
+
+		return `Loading`;
 	}
 
 	public static Loading(): Response<any, any> {
@@ -51,6 +74,15 @@ export class Response<E, T> implements Monad<T> {
 			return Response.Ready(fn(this.value));
 		else if (this.isError())
 			return Response.Error(this.err);
+
+		return Response.Loading();
+	}
+
+	public fmapError<U>(fn: (x: E) => U): Response<U, T> {
+		if (this.isError())
+			return Response.Error(fn(this.err));
+		else if (this.isReady())
+			return Response.Ready(this.value);
 
 		return Response.Loading();
 	}

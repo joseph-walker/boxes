@@ -11,9 +11,33 @@ export interface EitherPatternMatch<L, R, U> {
 	right: (r: R) => U
 }
 
+/**
+ * @class Either
+ *
+ * An Either box encapsulates data that could potentially be one of two different values. It has two instances: Left and Right.
+ * Operating on an Either will generally only proceed if the instance is Right <value>. In most cases, Left <value> will be skipped over unless
+ * you explicitly fmapLeft() the Either. For a more thorough explanation, take a look at the Either overview in the documentation.
+ *
+ * A word on naming: Even though you'll mostly see Either types representing potential errors and it can help to think of "Left" as an
+ * "Error" instance, an Either doesn't explicitly have to be an error. It can simply be an alternative. However, a helpful mnemonic you can use to
+ * remember the "preferred" value in an either is "Right is right, Left is wrong."
+ */
 export class Either<L, R> implements Monad<R> {
 	private constructor (readonly type: EitherType, readonly left: L, readonly right: R) {
 		//
+	}
+
+	/**
+	 * Overrides the toString() of the prototype to make logging of Either boxes
+	 * more user friendly
+	 *
+	 * @return {string}
+	 */
+	public toString(): string {
+		if (this.isRight())
+			return `Right (${this.right.toString()})`;
+
+		return `Left (${this.left.toString()})`;
 	}
 
 	public static Left<L, R>(value: L): Either<L, R> {
@@ -43,7 +67,7 @@ export class Either<L, R> implements Monad<R> {
 		return Either.Left(this.left);
 	}
 
-	public mapError<U>(fn: (x: L) => U): Either<U, R> {
+	public fmapLeft<U>(fn: (x: L) => U): Either<U, R> {
 		if (this.isLeft())
 			return Either.Left(fn(this.left));
 
