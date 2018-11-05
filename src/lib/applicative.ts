@@ -60,7 +60,7 @@ export function liftA6<T, U, V, W, X, Y, Z>(
 	fX: Applicative<X>,
 	fY: Applicative<Y>
 ): Applicative<Z> {
-	return (fT.fmap(curryN(5, fn)) as Applicative<(y: U, z: V, a: W, b: X, c: Y) => Z>)
+	return (fT.fmap(curryN(6, fn)) as Applicative<(y: U, z: V, a: W, b: X, c: Y) => Z>)
 		.ap(fU)
 		.ap(fV)
 		.ap(fW)

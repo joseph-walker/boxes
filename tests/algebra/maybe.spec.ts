@@ -3,6 +3,7 @@ import { expect } from 'chai';
 
 import { Maybe } from '../../src/algebra/maybe';
 import { functorLaws, applicativeLaws, monadLaws } from './typeclass.spec';
+import { testLiftN } from './lift.spec';
 
 function expectEquality<T>(valueA: T, valueB: T) {
 	expect(valueA).to.be.deep.equal(valueB);
@@ -37,21 +38,11 @@ describe('Maybe Monad', function() {
 
 	describe('Maybe Class Methods', function() {
 		describe('Applicative Lifts', function() {
-			describe('lift2()', function() {
-				it('should lift an arity 2 function call', function() {
-					const arity2 = (a: number, b: number) => a - b;
-					const lifted = Maybe.lift2(arity2);
-
-					const just3 = Maybe.Just(3);
-					const just4 = Maybe.Just(4);
-					const nothing: Maybe<number> = Maybe.Nothing();
-
-					expect(lifted).to.be.a('function');
-
-					expect(lifted(just4, just3)).to.be.deep.equal(Maybe.Just(1));
-					expect(lifted(just4, nothing)).to.be.deep.equal(Maybe.Nothing());
-				});
-			});
+			testLiftN(2, Maybe.lift2, Maybe.Just, Maybe.Nothing);
+			testLiftN(3, Maybe.lift3, Maybe.Just, Maybe.Nothing);
+			testLiftN(4, Maybe.lift4, Maybe.Just, Maybe.Nothing);
+			testLiftN(5, Maybe.lift5, Maybe.Just, Maybe.Nothing);
+			testLiftN(6, Maybe.lift6, Maybe.Just, Maybe.Nothing);
 		});
 	});
 
