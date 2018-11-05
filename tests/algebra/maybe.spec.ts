@@ -34,6 +34,37 @@ describe('Maybe Monad', function() {
 				expectEquality(Maybe.from(undefined), Maybe.Nothing());
 			});
 		});
+
+		describe('fromNullable()', function() {
+			it('should create a Maybe from a nullable value, passing through Undefined', function() {
+				expectEquality(Maybe.fromNullable(null), Maybe.Nothing());
+				expectEquality(Maybe.fromNullable(false), Maybe.Just(false));
+				expectEquality(Maybe.fromNullable(undefined), Maybe.Just(undefined));
+			});
+		});
+
+		describe('fromUndefined()', function() {
+			it('should create a Maybe from a defined value, passing through null', function() {
+				expectEquality(Maybe.fromUndefined(null), Maybe.Just(null));
+				expectEquality(Maybe.fromUndefined(false), Maybe.Just(false));
+				expectEquality(Maybe.fromUndefined(undefined), Maybe.Nothing());
+			});
+		});
+
+		describe('fromTruthy()', function() {
+			it('should create a Maybe from a truthy value', function() {
+				expectEquality(Maybe.fromTruthy(true), Maybe.Just(true));
+				expectEquality(Maybe.fromTruthy(false), Maybe.Nothing());
+				expectEquality(Maybe.fromTruthy(null), Maybe.Nothing());
+				expectEquality(Maybe.fromTruthy(undefined), Maybe.Nothing());
+				expectEquality(Maybe.fromTruthy(0), Maybe.Nothing());
+				expectEquality(Maybe.fromTruthy(1), Maybe.Just(1));
+			});
+		});
+	});
+
+	describe('Maybe Casting', function() {
+
 	});
 
 	describe('Maybe Class Methods', function() {
@@ -47,6 +78,20 @@ describe('Maybe Monad', function() {
 	});
 
 	describe('Maybe Instance Methods', function() {
+		describe('isJust()', function() {
+			it('should return true if the Maybe is Just', function() {
+				expect(Maybe.Just(3).isJust()).to.be.equal(true);
+				expect(Maybe.Nothing().isJust()).to.be.equal(false);
+			});
+		});
+
+		describe('isNothing()', function() {
+			it('should return true if the Maybe is Just', function() {
+				expect(Maybe.Just(3).isNothing()).to.be.equal(false);
+				expect(Maybe.Nothing().isNothing()).to.be.equal(true);
+			});
+		});
+
 		describe('toString()', function() {
 			it('should return a friendly string instead of jank', function() {
 				const just = Maybe.Just(4);
