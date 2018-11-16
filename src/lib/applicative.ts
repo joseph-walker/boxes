@@ -71,7 +71,7 @@ export function liftA6<T, U, V, W, X, Y, Z>(
 export function traverse<T, U>(pure: PureConstructor<U[]>, fn: (x: T) => Applicative<U>, xs: T[]): Applicative<U[]> {
 	// a -> [a] -> [a]
 	function consL(x: U, xs: U[]) {
-		return [].concat(x, xs);
+		return [].concat(xs, x);
 	}
 
 	// Applicative f => a -> f [a] -> f [a]
