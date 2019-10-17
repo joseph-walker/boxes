@@ -1,12 +1,12 @@
 {
-    "name": "boxes.js",
+    "name": "boxes",
     "version": "1.0.0",
     "description": "Higher order containers for dealing with janky data.",
-    "main": "dist/boxes.js",
-    "types": "dist/boxes.d.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "scripts": {
-		"build": "tsc",
-        "test": "mocha -r ts-node/register -r tsconfig-paths/register -r source-map-support/register tests/**/*.spec.ts"
+        "build": "tsc",
+        "test": "mocha -r ts-node/register -r source-map-support/register tests/**/*.spec.ts"
     },
     "keywords": [],
     "author": "",

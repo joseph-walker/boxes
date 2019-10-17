@@ -1,8 +1,8 @@
-import { Monad } from 'algebra/typeclass';
-import { Either } from 'algebra/either';
-import { Response } from 'algebra/response';
-import { isLinearFunction } from 'guard/isLinearFunction';
-import * as Applicative from 'lib/applicative';
+import { Monad } from './typeclass';
+import { Either } from './either';
+import { Response } from './response';
+import { isLinearFunction } from '../guard/isLinearFunction';
+import * as Applicative from '../lib/applicative';
 
 enum MaybeType {
 	Just = 'MAYBE_JUST',

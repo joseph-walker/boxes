@@ -1,5 +1,5 @@
 import { reduce, curryN } from 'ramda';
-import { Applicative } from 'algebra/typeclass';
+import { Applicative } from './../algebra/typeclass';
 
 export type PureConstructor<T> = (x: T) => Applicative<T>
 

@@ -1,5 +1,5 @@
-import { Monad } from 'algebra/typeclass';
-import { isLinearFunction } from 'guard/isLinearFunction';
+import { Monad } from './typeclass';
+import { isLinearFunction } from '../guard/isLinearFunction';
 
 enum EitherType {
 	Left = 'EITHER_LEFT',
