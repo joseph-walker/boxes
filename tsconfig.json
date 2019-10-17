@@ -3,11 +3,11 @@
 		"./src"
 	],
 	"compilerOptions": {
+		"declaration": true,
 		"removeComments": false,
-		"target": "es2016",
 		"moduleResolution": "node",
 		"noImplicitAny": true,
-		"outDir": "./compiled",
+		"outDir": "./dist",
 		"baseUrl": "src",
 		"paths": {
 			"guard/*": ["guard/*"],
