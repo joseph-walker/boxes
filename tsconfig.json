@@ -2,9 +2,13 @@
 	"include": [
 		"./src"
 	],
+	"exclude": [
+		"node_modules"
+	],
 	"compilerOptions": {
+		"target": "es6",
+		"lib": ["es6"],
 		"declaration": true,
-		"removeComments": false,
 		"moduleResolution": "node",
 		"noImplicitAny": true,
 		"outDir": "./dist",

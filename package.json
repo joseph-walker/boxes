@@ -5,6 +5,7 @@
     "main": "dist/boxes.js",
     "types": "dist/boxes.d.ts",
     "scripts": {
+		"build": "tsc",
         "test": "mocha -r ts-node/register -r tsconfig-paths/register -r source-map-support/register tests/**/*.spec.ts"
     },
     "keywords": [],
