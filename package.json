@@ -1,5 +1,5 @@
 {
-    "name": "boxes",
+    "name": "boxes.js",
     "version": "1.0.0",
     "description": "Higher order containers for dealing with janky data.",
     "main": "dist/index.js",
