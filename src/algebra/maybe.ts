@@ -234,11 +234,11 @@ export class Maybe<T> implements Monad<T> {
 	 *
 	 * @return {any}
 	 */
-	public extractUnsafe() {
+	public extract() {
 		if (this.isJust())
 			return this.value;
 
-		throw new Error(`Type Constraint Failure: Tried to extract Just value from Nothing instance`);
+		throw new Error(`Type Constraint Failure: Tried to extract Just value from ${typeof this.type} instance`);
 	}
 
 	/**

@@ -53,6 +53,13 @@ export class Response<E, T> implements Monad<T> {
 		return new Response(ResponseType.Error, null, err);
 	}
 
+	public static loadingFromNullable<T>(value: T): Response<any, T> {
+		if (value === null)
+			return new Response(ResponseType.Loading, null, null);
+		else
+			return new Response(ResponseType.Ready, value, null);
+	}
+
 	public static pure<E, T>(x: T): Response<E, T> {
 		return Response.Ready(x);
 	}
@@ -67,6 +74,23 @@ export class Response<E, T> implements Monad<T> {
 
 	public isError() {
 		return this.type === ResponseType.Error;
+	}
+
+	/**
+	 * Returns the contained error of the response if it is Error <e>, otherwise
+	 * returns undefined. Similar to `isError()`, but returns the full error if it exists.
+	 */
+	public error() {
+		return this.isError()
+			? this.err
+			: undefined;
+	}
+
+	public extract() {
+		if (this.isReady())
+			return this.value;
+		else
+			throw new Error(`Type Constraint Failure: Tried to extract Ready value from ${typeof this.value} instance`);
 	}
 
 	public fmap<U>(fn: (x: T) => U): Response<E, U> {
