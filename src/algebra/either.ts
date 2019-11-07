@@ -48,6 +48,13 @@ export class Either<L, R> implements Monad<R> {
 		return new Either(EitherType.Right, null, value);
 	}
 
+	public static fromNullable<L, R>(err: L, value: R | null): Either<L, R> {
+		if (value === null)
+			return Either.Left(err);
+
+		return Either.Right(value);
+	}
+
 	public static pure<L, R>(x: R): Either<L, R> {
 		return Either.Right(x);
 	}
