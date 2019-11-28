@@ -1,5 +1,6 @@
 import { Monad } from './typeclass';
 import { isLinearFunction } from '../guard/isLinearFunction';
+import * as Applicative from '../lib/applicative';
 
 enum ResponseType {
 	Loading = 'RESPONSE_LOADING',
@@ -147,5 +148,16 @@ export class Response<E, T> implements Monad<T> {
 			return patterns.error(this.err);
 
 		return patterns.loading();
+	}
+
+	public static lift2<T, U, V, E>(
+		fn: (x: T, y: U) => V
+	): (
+		fT: Response<E, T>,
+		fU: Response<E, U>
+	) => Response<E, V> {
+		return function(fT, fU) {
+			return Applicative.liftA2(fn, fT, fU) as Response<E, V>;
+		};
 	}
 }
