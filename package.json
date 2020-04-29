@@ -1,6 +1,6 @@
 {
     "name": "boxes.js",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Higher order containers for dealing with janky data.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
